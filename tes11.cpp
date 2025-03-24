@@ -17,7 +17,7 @@ int main() {
     int n;
     cin >> n;
 
-    int a[n]; // Menggunakan array biasa, bukan vector
+    int a[n];
 
     for (int i = 0; i < n; i++) {
         cin >> a[i];
@@ -25,7 +25,7 @@ int main() {
 
     long long faktor = 1;
 
-    // Loop yang benar untuk menghitung semua pasangan (i, j)
+
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) { // j selalu lebih besar dari i
             long long fpb = hitung_fpb(a[i], a[j]); // Hitung GCD yang benar
