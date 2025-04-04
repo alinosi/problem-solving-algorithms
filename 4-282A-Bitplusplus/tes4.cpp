@@ -9,7 +9,7 @@ int main()
     
     cin>>n;
     
-    while (n--) {
+    while (n--) { 
         cin>>input;
         if (input == "++x" || input == "x++" || input == "++X" || input == "X++") {
             x++;
