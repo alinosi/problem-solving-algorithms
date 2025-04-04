@@ -10,7 +10,8 @@ func main() {
 	fmt.Scan(&n)
 	fmt.Scan(&m)
 
-	var a [8]int
+	var a []int
+	a = make([]int, n)
 
 	if m >= 1 {
 		for i := 0; i < n; i++ {
@@ -25,5 +26,4 @@ func main() {
 	}
 
 	fmt.Println(kelulusan)
-
 }
