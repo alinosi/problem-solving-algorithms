@@ -3,14 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	var n int = 0 // jumlah partisipan
-	var m int = 0
-	var kelulusan int = 0
+	var (
+		n = 0 // jumlah partisipan
+		m = 0 // jumlah partisipan yang lolos
+		kelulusan = 0
+		a []int
+	)
 
-	fmt.Scan(&n)
-	fmt.Scan(&m)
+	fmt.Scan(&n, &m)
 
-	var a []int
 	a = make([]int, n)
 
 	if m >= 1 {
