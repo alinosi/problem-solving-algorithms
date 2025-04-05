@@ -13,4 +13,3 @@ Space complexity: 100kb O(1)
 
 <h1>Note</h1> 
 <h3>if size of n is dynamic, the time complexity is O(n^2) but if size of n is static, the time complexity is O(1)
-Space complexity: 100kb O(1)</h3>
