@@ -5,10 +5,10 @@ time: 2010-11-20 18:00:00
 
 # C++
 Time complexity: 92ms O(1)<br>
-Space complexity: 0kb O(1)
+Space complexity: 100kb O(1)
 
 # GO
 Time complexity: 122ms O(1)<br>
-Space complexity: 0kb O(1)
+Space complexity: 100kb O(1)
 
 Note: This is a simple problem, but it is a good example of how to use the Go language for competitive programming.
