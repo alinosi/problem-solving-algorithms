@@ -11,5 +11,5 @@ time: 2010-11-20 18:00:00
   <p>Space complexity: 0kb O(1)</p>
 
 # GO
-  Time complexity: 124ms O(1)
+  Time complexity: 124ms O(1)<br>
   Space complexity: 0kb O(1)
