@@ -8,5 +8,5 @@ Time complexity: 92ms O(1)<br>
 Space complexity: 0kb O(1)
 
 # GO
-Time complexity: 92ms O(1)<br>
+Time complexity: 61ms O(1)<br>
 Space complexity: 0kb O(1)
