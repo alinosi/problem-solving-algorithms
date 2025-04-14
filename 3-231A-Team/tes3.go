@@ -9,7 +9,7 @@ func main() {
 
 	var a []int
 	a = make([]int, n)
-	var fix int = 0
+	var output int = 0
 	var temp int = 0
 
 	for i := 0; i < n; i++ {
@@ -20,10 +20,10 @@ func main() {
 			}
 		}
 		if temp > 1 {
-			fix++
+			output++
 		}
 		temp = 0
 	}
 
-	fmt.Println(fix)
+	fmt.Println(output)
 }
