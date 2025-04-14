@@ -4,9 +4,9 @@ Contest: Codeforces Round #231 (https://codeforces.com/contest/231A)<br>
 time: 2010-11-20 18:00:00
 
 # C++
-Time complexity: 92ms O(n)<br>
-Space complexity: 0kb O(1)
+Time complexity: 122ms O(n^2)<br>
+Space complexity: 100kb O(1)
 
 # GO
-Time complexity: 92ms O(n)<br>
-Space complexity: 0kb O(1)
+Time complexity: 154ms O(n^2)<br>
+Space complexity: 300kb O(1)

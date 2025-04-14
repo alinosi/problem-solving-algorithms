@@ -5,8 +5,8 @@ int main()
 {
     int n;
     cin>>n;     
-    int a[n];
-    int fix = 0;
+    int a[3];
+    int output = 0;
     int temp = 0;
     
     for (int i=0; i<n;i++){
@@ -17,12 +17,12 @@ int main()
             }
         }
         if (temp > 1){
-            fix++;
+            output++;
         }
         temp = 0;
     }
     
-    cout<<fix;
+    cout<<output;
     
 
     return 0;

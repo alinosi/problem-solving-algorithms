@@ -7,9 +7,8 @@ func main() {
 	var n int
 	fmt.Scan(&n)
 
-	var a []int
-	a = make([]int, n)
-	var output int = 0
+	var a [3]int
+	var result int = 0
 	var temp int = 0
 
 	for i := 0; i < n; i++ {
@@ -20,10 +19,10 @@ func main() {
 			}
 		}
 		if temp > 1 {
-			output++
+			result++
 		}
 		temp = 0
 	}
 
-	fmt.Println(output)
+	fmt.Println(result)
 }
