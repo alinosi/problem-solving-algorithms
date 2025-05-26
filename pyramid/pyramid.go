@@ -18,7 +18,7 @@ func main() {
 			fmt.Print("*")
 		}
 
-		fmt.Println("")
+		fmt.Println()
 
 		gap--
 	}
