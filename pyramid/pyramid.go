@@ -4,22 +4,22 @@ import "fmt"
 
 func main() {
 	var rows int
-	gap := rows
-	oddFactor := 0
+	differentiattingFactor := 0
 
 	fmt.Print("Enter the number of rows for the pyramid: ")
 	fmt.Scan(&rows)
+	gap := rows
 
-	for i := 1; i <= rows; i++ {
+	for indexOfRow := 1; indexOfRow <= rows; indexOfRow++ {
 		for gap := gap - 1; gap >= 0; gap-- {
 			fmt.Print(" ")
 		}
 
-		for j := 1; j <= i+oddFactor; j++ {
+		for numberOfStars := 1; numberOfStars <= indexOfRow+differentiattingFactor; numberOfStars++ {
 			fmt.Print("*")
 		}
 
-		// if the index of i = 1 the oddfactor is 0 so j will print itself i+oddfactor times
+		// if the index of row = 1 then the differentiattingfactor is 0 so the number of star will printed as many as i+differentiattingfactor times
 
 		// reason
 		// row 1 1 *
@@ -32,7 +32,7 @@ func main() {
 		// 3 + 2 = 5
 		// 4 + 3 = 7
 
-		oddFactor++
+		differentiattingFactor++
 
 		fmt.Println("")
 
