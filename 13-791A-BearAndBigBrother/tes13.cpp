@@ -15,7 +15,7 @@ int main() {
         years++;
     }
     
-    cout<< years;
+    cout << years;
 
     return 0;
 }
