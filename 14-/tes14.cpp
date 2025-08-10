@@ -11,15 +11,15 @@ int main() {
     cin>>stones;
     cin>>color;
     
-    for (int i = 0; i<stones; i++ ) {
-        if (stones - 1 == i) {
-            break;
-        }
-        if (color[i] == color[i+1]) {
-            color.erase(i, 1);
-            counter++;
-            if (i >= 0) {
-                i--;
+    for (int i = 0; i < stones; i++ ) {
+        for (int j = i+1; j < stones; j++) {
+            if (color[i] == color[j]) {
+                color.erase(j, 1);
+                counter++;
+                stones--;
+                j--;
+            } else {
+                break;
             }
         }
     }
