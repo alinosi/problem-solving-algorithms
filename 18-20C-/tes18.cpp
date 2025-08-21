@@ -11,13 +11,17 @@ int main() {
 
     cin >> n; // input the number of vertex
     
-
     // problem, the edges must input manually
     vector<vector<pair<int, int>>> adj = {
         {{1, 2}},           // v0 -> v1 (weight 2)
         {{0, 2}, {2, 4}},   // v1 -> v0 (weight 2), v1 -> v2 (weight 4)
         {{1, 4}}            // v2 -> v1 (weight 4)
     };
+
+    for (int i = 1; i <= n; i++) {
+        
+    }
+
 
     vector<int> parent;
     
@@ -38,8 +42,8 @@ int main() {
         visited[u] = true;
         
         for (auto& edge : adj[u]) {
-            int v = edge.first;
-            int weight = edge.second;
+            int v = edge.first; // represetation vertex
+            int weight = edge.second; // representation weight
             
             if (!visited[v] && dist[u] != INF && dist[u] + weight < dist[v]) {
                 dist[v] = dist[u] + weight;
