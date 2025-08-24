@@ -8,7 +8,7 @@ using namespace std;
 
 int path(int n, int w) {
     const int INF = INT_MAX;
-    int prev, val = 0;
+    int val = 0;
     
     if ( w < n) {
         val = n;
@@ -25,7 +25,7 @@ int path(int n, int w) {
         adj[first].push_back({vrtx, second});
     }
     
-    vector<int> parent(n);
+    vector<int> parent(n+1);
     vector<int> path;
     vector<int> dist(n+1, INF);
     vector<bool> visited(n+1, false);
@@ -36,16 +36,16 @@ int path(int n, int w) {
     int u = 0;
     
     for (int count = 0; count < n; ++count) {
-        prev = u;
         if (count == 0) {
             u = 1;
+            parent[u] = 0;
         } else {
             int next = 0;
             int x = -1;
             for (int i = 0; i < adj[u].size(); ++i) {
                 if (!visited[adj[u][i].first]) {
                     if (x == -1 || adj[u][x].second > adj[u][i].second) {
-                        next = adj[u][i].first; 
+                        next = adj[u][i].first;
                         x = i;
                     }
                 }
@@ -54,14 +54,13 @@ int path(int n, int w) {
         }
         
         visited[u] = true;
-        parent[u] = prev;
         
         for (auto& edge : adj[u]) {
             int v = edge.first;
             int weight = edge.second;
-            
             if (!visited[v] && dist[u] != INF && dist[u] + weight < dist[v]) {
                 dist[v] = dist[u] + weight;
+                parent[v] = u; // new parent after relaxation
             }
         }
         
