@@ -32,25 +32,14 @@ int path(int n, int w) {
     
     int start = 1;
     dist[start] = 0;
-
-    int u = 0;
+    parent[start] = 0;
     
     for (int count = 0; count < n; ++count) {
-        if (count == 0) {
-            u = 1;
-            parent[u] = 0;
-        } else {
-            int next = 0;
-            int x = -1;
-            for (int i = 0; i < adj[u].size(); ++i) {
-                if (!visited[adj[u][i].first]) {
-                    if (x == -1 || adj[u][x].second > adj[u][i].second) {
-                        next = adj[u][i].first;
-                        x = i;
-                    }
-                }
+        int u = -1;
+        for (int v = 0; v < n; v++) {
+            if (!visited[v] && (u == -1 || dist[v] < dist[u])) {
+                u = v;
             }
-            u = next;
         }
         
         visited[u] = true;
@@ -63,18 +52,14 @@ int path(int n, int w) {
                 parent[v] = u; // new parent after relaxation
             }
         }
-        
-        if (u == n) {
-            break;
-        }
     }
     
     if (!parent[n]) {
         return -1;
     } else {
-        while (u != 0) {
-            path.push_back(u);
-            u = parent[u];
+        while (n != 0) {
+            path.push_back(n);
+            n = parent[n];
         }
         reverse(path.begin(), path.end());
         for (int& v : path) {
