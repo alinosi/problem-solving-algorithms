@@ -5,48 +5,48 @@
 #include <climits>
 using namespace std;
 
-
-int path(int n, int w) {
+int main() {
     const int INF = INT_MAX;
-    int prev, val = 0;
+    int n, w;
+    cin >> n >> w;
     
-    if ( w < n) {
-        val = n;
-    } else {
-        val = w;
-    }
-    
-    vector<vector<pair<int, int>>> adj(val+1);
+    vector<vector<pair<int, int>>> adj(w);
 
-    for (int i = 0; i < w; i++) {
+    for (int i = 0; i<w; i++) {
         int vrtx, first, second = 0;
         cin >> vrtx >> first >> second;  
         adj[vrtx].push_back({first, second});
         adj[first].push_back({vrtx, second});
     }
     
-    vector<int> parent(n);
-    vector<int> path;
+    vector<int> parent;
+    
     vector<int> dist(n+1, INF);
     vector<bool> visited(n+1, false);
     
     int start = 1;
     dist[start] = 0;
-
+    
+    // choose next node
     int u = 0;
     
-    for (int count = 0; count < n; ++count) {
-        prev = u;
+    for (int count = 0; count < n; count++) {
+        // int u = -1;
+        // for (int v = 1; v <= n; v++) {
+        //     if (!visited[v] && (u == -1 || dist[v] < dist[u])) {
+        //         u = v;
+        //     }
+        // }
         if (count == 0) {
             u = 1;
         } else {
             int next = 0;
-            int x = -1;
-            for (int i = 0; i < adj[u].size(); ++i) {
+            for (int i = 0; i < adj[u].size() - 1; ++i) {
                 if (!visited[adj[u][i].first]) {
-                    if (x == -1 || adj[u][x].second > adj[u][i].second) {
-                        next = adj[u][i].first; 
-                        x = i;
+                    if (adj[u][i].second > adj[u][i+1].second) {
+                        next = adj[u][i+1].first;   
+                    } else {
+                        next = adj[u][i].first;
                     }
                 }
             }
@@ -54,7 +54,7 @@ int path(int n, int w) {
         }
         
         visited[u] = true;
-        parent[u] = prev;
+        parent.push_back(u);
         
         for (auto& edge : adj[u]) {
             int v = edge.first;
@@ -65,35 +65,19 @@ int path(int n, int w) {
             }
         }
         
-        if (u == n) {
+        if ( u == n) {
             break;
         }
     }
     
-    if (!parent[n]) {
-        return -1;
-    } else {
-        while (u != 0) {
-            path.push_back(u);
-            u = parent[u];
-        }
-        reverse(path.begin(), path.end());
-        for (int& v : path) {
-            cout << v << " ";
-        }
+    cout << "\nOriginal format: ";
+    for (int path : parent) {
+        cout << path << " ";
     }
-    
-    return 0;
-}
 
-int main() {
-    int n, w;
-    cin >> n >> w;
-    
-    int parent = path(n, w);
-    
-    if (parent == -1) {
-        cout << parent;
+    cout << "\nOriginal format: ";
+    for (int path : dist) {
+        cout << path << " ";
     }
 
     return 0;
