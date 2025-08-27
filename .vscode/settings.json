@@ -3,6 +3,7 @@
         "*.rmd": "markdown",
         "iostream": "cpp",
         "utility": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "string": "cpp"
     }
 }
