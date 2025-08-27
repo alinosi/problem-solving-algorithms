@@ -20,6 +20,33 @@ int main() {
         {{0, 2}, {2, 4}}, // v1 
         {{1, 4}} // v2
     };
+
+
+    /*
+    how to input a value into vector 
+
+    vector<int> numbers(3);
+
+    visualization :
+    
+    {v, v, v, v}
+
+    so to input it to vector u must loop the vector and input it to the choosen elemtn, ex :
+
+    cin >> numbers{2} = 3;
+
+    {v, v, 3, v}
+
+    so if the vector is vector on the vector the visualization is : 
+
+    {{ v, v, v }, {v, v, v}}
+
+    to input it you can write :
+    cin >> numbers[0][0] = 3;
+
+    {{ 3, v, v }, {v, v, v}}
+
+    */ 
     
     vector<int> dist = {0, 2, INF};
     // inialisi langsung(construct), n buah vector dengan masing-masing nilai = INF
