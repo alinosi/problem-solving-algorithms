@@ -1,47 +1,33 @@
-#include <iostream>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    
-    vector<pair<int, string>> games(n);
-    vector<string> winners(n);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    for (auto& g : games) {
-        cin >> g.first >> g.second;
-    }
-    
-    for (int i = 0; i < n; ++i) {
-        int turn = 0;
-        bool winner = false;
-        int iterasi = 0;
-        while (winner != true) {
-            turn++;
-            for (char& check : games[i].second) {
-                if ( check != 'A' ) {
-                    --check;
-                } else {
-                    ++iterasi;
-                }
-            }
-            if (iterasi == games[i].first) {
-                if (turn % 2 == 0) {
-                    winners.push_back("Arka");
-                    winner = true;
-                } else {
-                    winners.push_back("Vidia");
-                    winner = true;
-                }
+    int T;
+    cin >> T;
+    while (T--) {
+        int N;
+        string S;
+        cin >> N >> S;
+
+        int lastNonA = -1;
+        for (int i = N - 1; i >= 0; i--) {
+            if (S[i] != 'A') {
+                lastNonA = i;
+                break;
             }
         }
+
+        if (lastNonA == -1) {
+            cout << "Vidia\n";
+        } else {
+            int val = S[lastNonA] - 'A';
+            if (val % 2 == 1) cout << "Arka\n";
+            else cout << "Vidia\n";
+        }
     }
-    
-    for (string& w : winners) {
-        cout << w << endl;
-    }
-    
+
     return 0;
 }
