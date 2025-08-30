@@ -1,53 +1,46 @@
-// Online C++ compiler to run C++ program online
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 int main() {
-    int games;
-    cin >> games;
+    int n;
+    cin >> n;
     
-    vector<pair<int, string>> loop(games);    
-    vector<string> winners(games);
-    int turn = 1;
-    
-    // input string
-    for (auto& l : loop) {
-        cin >> l.first >> l.second;
+    vector<pair<int, string>> games(n);
+    vector<string> winners(n);
+
+    for (auto& g : games) {
+        cin >> g.first >> g.second;
     }
     
-    // start game
-    for (auto& l : loop) {
-        int thereisnotA = 0;
-        // check the text first
-        for (char& s : l.second) {
-            if (s != 'A') {
-                thereisnotA++;
-            }
-        }
-        // determine the winners if there's the end
-        if (thereisnotA == 0) {
-            if (turn % 2 == 0) {
-                winners.push_back("Arka");
-            } else {
-                winners.push_back("Vidia");
-            }
-        } else {
-            // start decrement the char
-            for (char& s : l.second) {
-                if (s != 'A') {
-                    --s;
+    for (int i = 0; i < n; ++i) {
+        int turn = 0;
+        bool winner = false;
+        int iterasi = 0;
+        while (winner != true) {
+            turn++;
+            for (char& check : games[i].second) {
+                if ( check != 'A' ) {
+                    --check;
+                } else {
+                    ++iterasi;
                 }
             }
-            turn ++;
+            if (iterasi == games[i].first) {
+                if (turn % 2 == 0) {
+                    winners.push_back("Arka");
+                    winner = true;
+                } else {
+                    winners.push_back("Vidia");
+                    winner = true;
+                }
+            }
         }
-
     }
     
-    // loop to determine the winner every games
-    for (string g : winners) {
-        cout << g << "\n";
+    for (string& w : winners) {
+        cout << w << endl;
     }
     
     return 0;
