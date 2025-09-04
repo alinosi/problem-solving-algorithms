@@ -24,8 +24,15 @@ int main() {
             sum+= n;
         }
     } else {
+        int counter = 0;
         for (int i = 0; i < n; i++) {
-            sum+= goods.at(i);
+            if ( counter > 0 && counter % a == 0) {
+                i += b - 1;
+                counter = 0;
+            } else {
+                sum += goods.at(i);
+                counter++;
+            }
         }
     }
 
