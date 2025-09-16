@@ -2,31 +2,36 @@
 
 using namespace std;
 
-void formulaF(int number) {
-    int result;
+long long formulaF(long long number) {
+    long long result;
 
-    if (number % 2 == 0) {
-        int idxE = number/2;
-        int idxO =  idxE;
-        result = (idxE/2 * ((2*2 + (idxE - 1) * 2))) - (idxO/2*((2*(-1) + (idxO - 1) - 1) * (-2)));
-
-    } else {
-        int idxE = number / 2;
-        int idxO =  idxE + 1;
-        result = (idxE/2 * ((2*2 + (idxE - 1) * 2))) - (idxO/2*((2*(-1) + (idxO - 1) - 1) * (-2)));
+    if (number == 1) {
+        return -1;
+    } else if (number == 0) {
+        return number;
     }
 
-    cout << result;
+    // substract (n(+), n(-))
+    if (number % 2 == 0) { // even
+        long long idxE = number/2;
+        long long idxO =  idxE;
+        result = ((idxE * (2*2 + (idxE - 1) * 2))/2) + ((idxO * (2*(-1) + (idxO - 1) * (-2)))/2);
+    } else { // odd
+        long long idxE = (number - 1) / 2; // number of even numbers
+        long long idxO =  idxE + 1; // number of odd numbers
+        result = ((idxE * (2*2 + (idxE - 1) * 2))/2) + ((idxO * (2*(-1) + (idxO - 1) * (-2)))/2);
+    }
 
+    return result;
 }
 
 int main () {
 
-    int number;
+    long long number;
 
     cin >> number;
 
-    formulaF(number);
+    cout << formulaF(number);
 
     return  0;
 }
