@@ -2,14 +2,6 @@
 
 using namespace std;
 
-void modular(auto number) {
-
-    for (auto n : number) {
-        cout << number;
-    }
-}
-
-
 int main () {
     int qty;
     
@@ -17,11 +9,15 @@ int main () {
     
     vector <int> numbers(qty);
     
-    for (int i = 0;i< qty; ++i) {
-        cin >> numbers[i];
+    for (int i = 1;i<= qty; ++i) {
+        int gave = 0;
+        cin >> gave; 
+        numbers[gave - 1] = i;
     }
 
-    modular(numbers);
+    for (int number : numbers) {
+        cout << number << " ";
+    }
 
     return 0;
 }
