@@ -9,7 +9,7 @@ int main() {
     vector <int> c;
     cin >> a >> b;
     
-    for (int i = 0; i< a.size(); ++i){
+    for (int i = 0; i< a.size(); ++i) {
         if (a[i] != b[i]) {
             c.push_back(1);
         } else {
@@ -17,7 +17,7 @@ int main() {
         }
     }
     
-    for (int i : c){
+    for (int i : c) {
         cout << i;
     }
     
