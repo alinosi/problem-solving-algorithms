@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <utility>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 
 
