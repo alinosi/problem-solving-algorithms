@@ -2,40 +2,29 @@
 using namespace std;
 
 int main() {
-    int n, a, b;
-    int sum = 0;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
+    long long n, a, b;
     cin >> n >> a >> b;
 
-    vector<int>goods(n);
-
-    for (int& i : goods) {
+    vector<long long> goods(n);
+    for (long long& i : goods) {
         cin >> i;
     }
 
     sort(goods.rbegin(), goods.rend());
-    
-    if ( n == a+b) {
-        for (int i = 0; i <a ; ++i) {
-            sum+= goods.at(i);
-        }
-    } else if ( n < a + b) {
-        for (int n : goods) {
-            sum+= n;
-        }
-    } else {
-        int counter = 0;
-        for (int i = 0; i < n; i++) {
-            if ( counter > 0 && counter % a == 0) {
-                i += b - 1;
-                counter = 0;
-            } else {
-                sum += goods.at(i);
-                counter++;
-            }
+
+    long long sum = 0;
+    long long group_size = a + b;
+
+    for (int i = 0; i < n; i++) {
+        if (i % group_size < a) {
+            sum += goods[i];
         }
     }
 
-    cout << sum;
+    cout << sum << endl;
 
+    return 0;
 }
